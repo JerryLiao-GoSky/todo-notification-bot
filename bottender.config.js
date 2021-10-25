@@ -38,6 +38,14 @@ module.exports = {
         "messaging_handovers",
         "messaging_policy_enforcement",
       ],
+      profile: {
+        whitelistedDomains: [
+          "https://todo-notification-bot.herokuapp.com/",
+          "https://todo-notification-bot.herokuapp.com/webhooks/messenger",
+          "https://google.com/",
+          "https://yahoo.com/",
+        ],
+      },
     },
     whatsapp: {
       enabled: false,
