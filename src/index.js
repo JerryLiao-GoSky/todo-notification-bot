@@ -13,11 +13,17 @@ module.exports = async function App(context) {
         buttons: [
           {
             type: "web_url",
-            title: "Google",
+            title: "Google Webview",
             url: "https://google.com/",
             messengerExtensions: true,
             webviewHeightRatio: "tall",
             fallbackUrl: "https://google.com/",
+          },
+          {
+            type: "web_url",
+            title: "Google Link",
+            url: "https://google.com/",
+            webviewHeightRatio: "tall",
           },
         ],
       },
