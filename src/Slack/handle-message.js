@@ -1,7 +1,7 @@
 module.exports = async function HandleMessage(context) {
-  if (context.event.isText) {
-    await context.chat.postEphemeral({
-      text: `received the text message: ${context.event.text}`,
-    });
-  }
+  // For testing.
+  // await context.sendText(`received the text message: ${context.event.text}`);
+  // await context.chat.postEphemeral({
+  //   text: `received the text message: ${context.event.text}`,
+  // });
 };
