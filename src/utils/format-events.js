@@ -2,7 +2,6 @@ const _ = require("lodash");
 const dayjs = require("dayjs");
 
 module.exports = function FormatEvents(userEmail, events) {
-  const isCreator = (event) => _.get(event, "creator.email") === userEmail;
   const isAttendee = (event) =>
     _.some(
       event.attendees,
@@ -10,9 +9,7 @@ module.exports = function FormatEvents(userEmail, events) {
     );
 
   return _.map(
-    _.filter(events, (event) => {
-      return isCreator(event) || isAttendee(event);
-    }),
+    _.filter(events, (event) => isAttendee(event)),
     (event) => ({
       id: event.id,
       summary: event.summary,
