@@ -14,40 +14,11 @@ module.exports = CalendarTemplate = (name, events = []) => {
       type: "section",
       text: {
         type: "mrkdwn",
-        text: `${name ? `${name} ` : ""}今日共有 ${events.length} 個活動：`,
+        text: `${name ? `${name} ` : "您"}今日共有 ${events.length} 個活動：`,
       },
     },
     ..._.map(events, (event) => sectionElement(event)),
   ];
 
   return { blocks };
-  //   return {
-  //   blocks: [
-  //     {
-  //       type: "section",
-  //       text: { type: "mrkdwn", text: `${name ? `${name} ` : ''}今日共有 ${events.length} 個活動：` },
-  //     },
-  //     {
-  //       type: "section",
-  //       text: {
-  //         type: "mrkdwn",
-  //         text: "><https://www.google.com/calendar/|*summary*>\n>Start - End",
-  //       },
-  //     },
-  //     {
-  //       type: "section",
-  //       text: {
-  //         type: "mrkdwn",
-  //         text: "><https://www.google.com/calendar/|*summary*>\n>Start - End",
-  //       },
-  //     },
-  //     {
-  //       type: "section",
-  //       text: {
-  //         type: "mrkdwn",
-  //         text: "><https://www.google.com/calendar/|*summary*>\n>Start - End",
-  //       },
-  //     },
-  //   ],
-  //   };
 };

@@ -1,14 +1,17 @@
 const _ = require("lodash");
 const dayjs = require("dayjs");
 
-module.exports = function FormatEvents(user, events) {
-  const isCreator = (u, e) => _.includes(_.get(e, "creator.email"), u);
-  const isAttendee = (u, e) =>
-    _.some(e.attendees, (a) => _.includes(_.get(a, "email"), u));
+module.exports = function FormatEvents(userEmail, events) {
+  const isCreator = (event) => _.get(event, "creator.email") === userEmail;
+  const isAttendee = (event) =>
+    _.some(
+      event.attendees,
+      (attendee) => _.get(attendee, "email") === userEmail
+    );
 
   return _.map(
-    _.filter(events, (originEvent) => {
-      return isCreator(user, originEvent) || isAttendee(user, originEvent);
+    _.filter(events, (event) => {
+      return isCreator(event) || isAttendee(event);
     }),
     (event) => ({
       id: event.id,
