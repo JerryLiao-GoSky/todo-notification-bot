@@ -18,7 +18,7 @@ module.exports = function FormatEvents(userEmail, events) {
         ? dayjs(event.start.date).format("YYYY/MM/DD")
         : dayjs(event.start.dateTime).format("YYYY/MM/DD HH:mm"),
       end: _.has(event, "end.date")
-        ? dayjs(event.end.date).format("YYYY/MM/DD")
+        ? dayjs(event.end.date).subtract(1, "d").format("YYYY/MM/DD")
         : dayjs(event.end.dateTime).format("YYYY/MM/DD HH:mm"),
     })
   );
