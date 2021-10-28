@@ -39,12 +39,9 @@ module.exports = {
         "messaging_policy_enforcement",
       ],
       profile: {
-        whitelistedDomains: [
-          "https://todo-notification-bot.herokuapp.com/",
-          "https://todo-notification-bot.herokuapp.com/webhooks/messenger",
-          "https://google.com/",
-          "https://yahoo.com/",
-        ],
+        whitelistedDomains: JSON.parse(
+          process.env.MESSENGER_WHITELISTED_DOMAINS
+        ),
       },
     },
     whatsapp: {
